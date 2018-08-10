@@ -1,10 +1,8 @@
 # Next-Issue-Github
 
-This user script add "Next Issue" and "Previous Issue" button when you are on
-GitHub issue page. One can then easily browse issue one by one.
+This user script add ["Next Issue" and "Previous Issue" buttons](GitHubNextIssue.png) when you are on GitHub issue page. One can then easily browse issue one by one.
 
-![GitHub Next Issue Screenshot](GitHubNextIssue.png)
-
+## Screenshot
 ![GitHub Next Issue Screenshot](GitHubNextIssue2.png)
 
 
