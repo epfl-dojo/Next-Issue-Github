@@ -48,7 +48,7 @@ function appMain() {
     function changeIssues() {
       GM_xmlhttpRequest({
         method: "GET",
-        url: "https://api.github.com/repos/" + orga + "/" + repo + "/issues",
+        url: "https://api.github.com/repos/" + orga + "/" + repo + "/issues?per_page=100", // good until 100 issues, then one need to parse github header https://stackoverflow.com/questions/8735792/how-to-parse-link-header-from-github-api
         onload: function(res) {
           var issues = [];
           JSON.parse(res.responseText).forEach(function(e){
