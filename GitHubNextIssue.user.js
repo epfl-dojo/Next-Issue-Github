@@ -72,9 +72,14 @@ function appMain() {
             var next = issues[issues.indexOf(parseInt(currentIssue))+1];
             var nextURL = issuesURL + next;
 
-          // Add the Next Issue Button
-          $('.gh-header-actions > a').parent().prepend('<a id="nextissue" href="' + prevURL + '" class="btn btn-sm btn-secondary float-right" onclick="window.location.href=\'' + prevURL + '\'">Previous issue</a>');
-          $('.gh-header-actions > a').parent().prepend('<a id="previssue" href="' + nextURL + '" class="btn btn-sm btn-secondary float-right" onclick="window.location.href=\'' + nextURL + '\'">Next issue</a>');
+            // Add the Next/Prev Issue Buttons
+            if (typeof(prev) !== 'undefined') {
+              $('.gh-header-actions > a').parent().prepend('<a id="previssue" href="' + prevURL + '" class="btn btn-sm btn-secondary float-right" onclick="window.location.href=\'' + prevURL + '\'">Previous issue</a>');
+            }
+            if (typeof(next) !== 'undefined') {
+              $('.gh-header-actions > a').parent().prepend('<a id="nextissue" href="' + nextURL + '" class="btn btn-sm btn-secondary float-right" onclick="window.location.href=\'' + nextURL + '\'">Next issue</a>');
+            }
+          }
 
         },
         onerror: function() {
