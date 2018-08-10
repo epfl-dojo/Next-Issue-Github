@@ -21,8 +21,9 @@ waitForKeyElements ("#js-flash-container", appMain);
 function fireOnNewPage () {
     switch (location.hash.toLowerCase() ) {
         case "#js-flash-container":
+          appMain();
+        break;
         default:
-        appMain();
         break;
     }
 }
