@@ -5,6 +5,9 @@ GitHub issue page. One can then easily browse issue one by one.
 
 ![GitHub Next Issue Screenshot](GitHubNextIssue.png)
 
+![GitHub Next Issue Screenshot](GitHubNextIssue2.png)
+
+
 ## Notes
 
 ### CSP
