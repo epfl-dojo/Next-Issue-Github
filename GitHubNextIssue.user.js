@@ -36,8 +36,7 @@ function appMain() {
     
     // Get Current and Issues URLs
     var currentURL = window.location.href;
-    var to = currentURL.lastIndexOf('/') +1;
-    var issuesURL =  currentURL.substring(0, to);
+    var issuesURL =  currentURL.substring(0, currentURL.lastIndexOf('/') +1);
     var pathSegments = window.location.pathname.split('/');
     var orga = pathSegments[1];
     var repo = pathSegments[2];
