@@ -50,19 +50,27 @@ function appMain() {
         method: "GET",
         url: "https://api.github.com/repos/" + orga + "/" + repo + "/issues?per_page=100", // good until 100 issues, then one need to parse github header https://stackoverflow.com/questions/8735792/how-to-parse-link-header-from-github-api
         onload: function(res) {
-          var issues = [];
-          JSON.parse(res.responseText).forEach(function(e){
-            if (typeof(e.pull_request) !== 'undefined'){
-              // remove pull request console.log(e);
-            } else {
-              issues.push(e.number);
-            }
-          });
 
-          var prev = (issues[issues.indexOf(parseInt(currentIssue))-1]);
-          var prevURL = issuesURL + prev
-          var next = (issues[issues.indexOf(parseInt(currentIssue))+1]);
-          var nextURL = issuesURL + next
+          // Poor man error handling, e.g. "API rate limit exceeded"
+          if (res.status >= 400) {
+            console.log(res.statusText);
+            //console.log(JSON.parse(res.responseText)['message']);
+            //alert( res.statusText + "\n" + JSON.parse(res.responseText).message)  
+          } else {
+
+            var issues = [];
+            JSON.parse(res.responseText).forEach(function(e){
+              if (typeof(e.pull_request) !== 'undefined'){
+                // remove pull request console.log(e);
+              } else {
+                issues.push(e.number);
+              }
+            });
+
+            var prev = issues[issues.indexOf(parseInt(currentIssue))-1];
+            var prevURL = issuesURL + prev;
+            var next = issues[issues.indexOf(parseInt(currentIssue))+1];
+            var nextURL = issuesURL + next;
 
           // Add the Next Issue Button
           $('.gh-header-actions > a').parent().prepend('<a id="nextissue" href="' + prevURL + '" class="btn btn-sm btn-secondary float-right" onclick="window.location.href=\'' + prevURL + '\'">Previous issue</a>');
