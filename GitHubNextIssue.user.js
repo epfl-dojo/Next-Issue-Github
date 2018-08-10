@@ -6,6 +6,7 @@
 // @require     https://code.jquery.com/jquery-3.3.1.min.js
 // @require     https://gist.github.com/raw/2625891/waitForKeyElements.js
 // @author      EPFL-dojo
+// @version     v0.0.3
 // @downloadURL https://raw.githubusercontent.com/epfl-dojo/Next-Issue-Github/master/GitHubNextIssue.user.js
 // ==/UserScript==
 
